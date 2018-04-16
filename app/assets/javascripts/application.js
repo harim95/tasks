@@ -18,7 +18,6 @@
 $(function(){
     $('#formActivities').keypress(function(e) {
         if(e.keyCode == 13) {
-
             $.ajax({
                 url:$("#activityCreate").val(),
                 type: "POST",
@@ -31,7 +30,6 @@ $(function(){
                     $("#formActivities")[0].reset();
                 },
                 error:function (data) {
-
                 }
             })
         }
@@ -49,7 +47,7 @@ $(function(){
             $("#activityNameModal").val(data.name);
             $("#activityDescription").val(data.description);
             $("#activityEndDate").val(data.enddate);
-            $("#activityMember").val();
+            
 
             }
 
@@ -68,7 +66,7 @@ $(function(){
                     name:$("#activityNameModal").val(),
                     description:$("#activityDescription").val(),
                     enddate:$("#activityEndDate").val(),
-                    members: members
+                    member_ids: members
                 }
             },
             success: function (data) {

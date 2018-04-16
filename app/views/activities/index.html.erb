@@ -12,7 +12,7 @@
       </form>
       <ul id="listActivities" class="list-group">
         <% @activities.each do |activity| %>
-        <li class="list-group-item" activity_id="<%= activity.id %>"><%= activity.name + ' '%><%= link_to 'Eliminar', activity, method: :delete, data: { confirm: 'Está seguro?' } %> </li>
+        <li class="list-group-item" activity_id="<%= activity.id %>"><%= activity.name + ' '%> <button>eliminar</button> </li>
           <% end %>
       </ul>
     </div>
@@ -46,7 +46,7 @@
             <label>Miembros designados</label>
             <% Member.all.each do |member| %>
               <label>
-                <input name="activityMembers" type="checkbox" id="activityMember_<%= member.id %>" value="<%= member.id %>">
+                <input name="activityMembers" type="checkbox" class="memberCheckbox_<%= member.id %>" id="activityMember_<%= member.id %>" value="<%= member.id %>">
                 <span><%= member.name%> </span>
               </label>
             <% end %>

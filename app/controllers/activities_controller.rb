@@ -16,10 +16,11 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
+    @activity.members
     respond_to do |format|
       format.html
       format.json {
-        render :json => @activity
+        render :json => @activity.to_json(:include => :members)
       }
     end
 
@@ -54,7 +55,8 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-
+    @activity_id = params[:activity_id]
+    @activity
     respond_to do |format|
       if @activity.update(activity_params)
         format.html { redirect_to @activity, notice: 'La actividad ha sido actualizada.' }
@@ -81,7 +83,7 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:name, :description, :enddate, :members)
+    params.require(:activity).permit(:name, :description, :enddate, member_ids: [])
   end
 
 end
