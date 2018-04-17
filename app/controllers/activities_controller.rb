@@ -56,7 +56,7 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity_id = params[:activity_id]
-    @activity
+
     respond_to do |format|
       if @activity.update(activity_params)
         format.html { redirect_to @activity, notice: 'La actividad ha sido actualizada.' }
@@ -71,7 +71,7 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity.destroy
     respond_to do |format|
-      format.html { redirect_to activities_url, notice: 'La actividad ha sido eliminada.' }
+      format.html { redirect_to root_url, notice: 'La actividad ha sido eliminada.' }
       format.json { head :no_content }
     end
   end

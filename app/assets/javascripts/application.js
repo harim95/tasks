@@ -47,13 +47,13 @@ $(function(){
             $("#activityNameModal").val(data.name);
             $("#activityDescription").val(data.description);
             $("#activityEndDate").val(data.enddate);
-            
-
+            $.each(data.members, function (idx, item) {
+                $(".memberCheckbox_"+item.id).prop('checked', true);
+            })
             }
-
         })
-
     });
+
     $("#updateActivity").click(function(){
         id= $("#id_activity").val();
         var members = $.map($('input[name="activityMembers"]:checked'), function(c){return c.value; });
@@ -77,5 +77,4 @@ $(function(){
 
 
     })
-
 })

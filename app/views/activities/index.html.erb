@@ -12,7 +12,7 @@
       </form>
       <ul id="listActivities" class="list-group">
         <% @activities.each do |activity| %>
-        <li class="list-group-item" activity_id="<%= activity.id %>"><%= activity.name + ' '%> <button>eliminar</button> </li>
+        <li class="list-group-item" activity_id="<%= activity.id %>"><%= activity.name + ' '%> <%= link_to 'Eliminar', activity, method: :delete, data: { confirm: 'Está seguro?' }, class: 'btn btn-danger' %></li>
           <% end %>
       </ul>
     </div>
