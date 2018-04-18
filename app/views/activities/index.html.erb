@@ -46,7 +46,7 @@
             <label>Miembros designados</label>
             <% Member.all.each do |member| %>
               <label>
-                <input name="activityMembers" type="checkbox" class="memberCheckbox_<%= member.id %>" id="activityMember_<%= member.id %>" value="<%= member.id %>">
+                <input name="activityMembers" type="checkbox" class="memberCheckbox_<%= member.id %> memberCheckboxCleaner " id="activityMember_<%= member.id %>" value="<%= member.id %>">
                 <span><%= member.name%> </span>
               </label>
             <% end %>

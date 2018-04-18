@@ -47,9 +47,12 @@ $(function(){
             $("#activityNameModal").val(data.name);
             $("#activityDescription").val(data.description);
             $("#activityEndDate").val(data.enddate);
-            $.each(data.members, function (idx, item) {
+            $(".memberCheckboxCleaner").removeAttr('checked');
+                $.each(data.members, function (idx, item) {
                 $(".memberCheckbox_"+item.id).prop('checked', true);
             })
+
+
             }
         })
     });
